@@ -1,0 +1,14 @@
+{
+  "name": "refactoring",
+  "version": "1.0.0",
+  "description": "Fowler Martin의 리펙토링 연습",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "29.5.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
