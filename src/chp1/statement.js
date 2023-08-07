@@ -1,11 +1,7 @@
-const fs = require("fs");
-const invoice = JSON.parse(fs.readFileSync("invoices.json", "utf8"));
-const plays = JSON.parse(fs.readFileSync("plays.json", "utf8"));
-
 function statement(invoice, plays) {
   let totalAmount = 0;
   let volumeCredits = 0;
-  let result = `청구 내역(고객명: ${invoice.customer})\n`;
+  let result = `Statement for ${invoice.customer}\n`;
   const format = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -37,14 +33,14 @@ function statement(invoice, plays) {
     volumeCredits += Math.max(perf.audience - 30, 0);
     if ("comedy" === play.type) volumeCredits += Math.floor(perf.audience / 5);
 
-    result += `${play.name}: ${format(thisAmount / 100)} (${
+    result += `  ${play.name}: ${format(thisAmount / 100)} (${
       perf.audience
-    }석)\n`;
+    } seats)\n`;
     totalAmount += thisAmount;
   }
-  result += `총액: ${format(totalAmount / 100)}\n`;
-  result += `적립 포인트: ${volumeCredits}점\n`;
+  result += `Amount owed is ${format(totalAmount / 100)}\n`;
+  result += `You earned ${volumeCredits} credits\n`;
   return result;
 }
 
-console.log(statement(invoice[0], plays));
+export { statement };
