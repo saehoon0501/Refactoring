@@ -1,4 +1,4 @@
-import { statement } from "../../src/chp1/statement.js";
+import { statement, htmlStatement } from "../../src/chp1/statement.js";
 
 describe("statement", () => {
   let playsJson = {
@@ -39,16 +39,16 @@ describe("statement", () => {
     expect(statement(invoicesJson[0], playsJson)).toEqual(expected);
   });
 
-  //   it("should print a statement for multiple plays, single customer and multiple seats in html", () => {
-  //     let result = `<h1>Statement for BigCo</h1>\n`;
-  //     result += "<table>\n";
-  //     result += `<tr><th>play</th><th>seats</th><th>cost</th></tr>  <tr><td>Hamlet</td><td>55</td><td>$650.00</td></tr>\n`;
-  //     result += `  <tr><td>As You Like It</td><td>35</td><td>$580.00</td></tr>\n`;
-  //     result += `  <tr><td>Othello</td><td>40</td><td>$500.00</td></tr>\n`;
-  //     result += "</table>\n";
-  //     result += `<p>Amount owed is <em>$1,730.00</em></p>\n`;
-  //     result += `<p>You earned <em>47</em> credits</p>\n`;
+  it("should print a statement for multiple plays, single customer and multiple seats in html", () => {
+    let result = `<h1>Statement for BigCo</h1>\n`;
+    result += "<table>\n";
+    result += `<tr><th>play</th><th>seats</th><th>cost</th></tr>  <tr><td>Hamlet</td><td>55</td><td>$650.00</td></tr>\n`;
+    result += `  <tr><td>As You Like It</td><td>35</td><td>$580.00</td></tr>\n`;
+    result += `  <tr><td>Othello</td><td>40</td><td>$500.00</td></tr>\n`;
+    result += "</table>\n";
+    result += `<p>Amount owed is <em>$1,730.00</em></p>\n`;
+    result += `<p>You earned <em>47</em> credits</p>\n`;
 
-  //     expect(htmlStatement(invoicesJson[0], playsJson)).toEqual(result);
-  //   });
+    expect(htmlStatement(invoicesJson[0], playsJson)).toEqual(result);
+  });
 });
