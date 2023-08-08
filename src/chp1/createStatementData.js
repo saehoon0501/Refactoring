@@ -71,10 +71,6 @@ function createStatementData(invoice, plays) {
     result.volumeCredits = calculator.volumeCreditsFor;
     return result;
   }
-  function amountFor(aPerformance) {
-    return new PerformanceCalculator(aPerformance, playFor(aPerformance))
-      .amount;
-  }
 
   function totalVolumeCredits(data) {
     return data.performances.reduce((total, p) => total + p.volumeCredits, 0);
@@ -82,11 +78,6 @@ function createStatementData(invoice, plays) {
 
   function totalAmount(data) {
     return data.performances.reduce((total, p) => total + p.amount, 0);
-  }
-
-  function volumeCreditsFor(aPerformance) {
-    return new PerformanceCalculator(aPerformance, playFor(aPerformance))
-      .volumeCreditsFor;
   }
 }
 
