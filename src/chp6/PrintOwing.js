@@ -20,3 +20,7 @@ function printOwing(invoice) {
   console.log(`amount: ${outstanding}`);
   console.log(`due: ${invoice.dueDate.toLocalDateString()}`);
 }
+
+function printBanner() {}
+
+exports = { printOwing };
