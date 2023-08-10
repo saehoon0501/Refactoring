@@ -5,7 +5,7 @@ describe("Book", () => {
     let book = new Book();
     let customer = { id: "1" };
 
-    expect(book.hasReservation(customer)).to.equal(false);
+    expect(book.hasReservation(customer)).toEqual(false);
   });
 
   it("report reservation for reserved customers", () => {
@@ -17,7 +17,7 @@ describe("Book", () => {
     let anotherCustomer = { id: "2" };
     book.addReservation(anotherCustomer, false);
 
-    expect(book.hasReservation(aCustomer)).to.equal(true);
-    expect(book.hasReservation(anotherCustomer)).to.equal(true);
+    expect(book.hasReservation(aCustomer)).toEqual(true);
+    expect(book.hasReservation(anotherCustomer)).toEqual(true);
   });
 });
