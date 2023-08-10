@@ -1,11 +1,7 @@
 function printOwing(invoice) {
-  let outstanding = 0;
-
   printBanner();
 
-  for (const o of invoice.orders) {
-    outstanding += o.amount;
-  }
+  const outstanding = calculateOutstanding(invoice);
 
   const today = Clock.today;
   invoice.dueDate = new Date(
@@ -27,6 +23,14 @@ function printDetails(invoice, outstanding) {
   console.log(`name: ${invoice.customer}`);
   console.log(`amount: ${outstanding}`);
   console.log(`due: ${invoice.dueDate.toLocalDateString()}`);
+}
+
+function calculateOutstanding(invoice) {
+  let result = 0;
+  for (const o of invoice.orders) {
+    result += o.amount;
+  }
+  return result;
 }
 
 exports = { printOwing };
