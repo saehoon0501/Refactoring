@@ -4,7 +4,9 @@ describe("inNewEngland", () => {
   it("should find no New England Customers when there are no customers", () => {
     const noCustomers = [];
 
-    const newEnglandCustomers = noCustomers.filter((c) => inNewEngland(c));
+    const newEnglandCustomers = noCustomers.filter((c) =>
+      inNewEngland(c.address.state)
+    );
 
     expect(newEnglandCustomers).toEqual([]);
   });
@@ -18,7 +20,9 @@ describe("inNewEngland", () => {
 
     const someCustomers = [aNewEnglandCustomer];
 
-    const newEnglandCustomers = someCustomers.filter((c) => inNewEngland(c));
+    const newEnglandCustomers = someCustomers.filter((c) =>
+      inNewEngland(c.address.state)
+    );
 
     expect(newEnglandCustomers).toEqual(someCustomers);
   });
@@ -48,7 +52,9 @@ describe("inNewEngland", () => {
       anotherNewEnglandCustomer,
     ];
 
-    const newEnglandCustomers = someCustomers.filter((c) => inNewEngland(c));
+    const newEnglandCustomers = someCustomers.filter((c) =>
+      inNewEngland(c.address.state)
+    );
 
     expect(newEnglandCustomers).toEqual([
       aNewEnglandCustomer,

@@ -1,9 +1,4 @@
-function inNewEngland(aCustomer) {
-  const stateCode = aCustomer.address.state;
-  return xxinNewEngland(stateCode);
-}
-
-function xxinNewEngland(stateCode) {
+function inNewEngland(stateCode) {
   return ["MA", "CT", "ME", "VT", "NH", "RI"].includes(stateCode);
 }
 
