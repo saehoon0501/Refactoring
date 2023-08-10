@@ -1,20 +1,20 @@
-function printOwing(invoice) {
-  printBanner();
+function printOwing(invoice, console, Clock) {
+  printBanner(console);
   const outstanding = calculateOutstanding(invoice);
-  recordDueDate(invoice);
-  printDetails(invoice, outstanding);
+  recordDueDate(invoice, Clock);
+  printDetails(invoice, outstanding, console);
 }
 
-function printBanner() {
+function printBanner(console) {
   console.log("***********************");
   console.log("**** Customer Owes ****");
   console.log("***********************");
 }
 
-function printDetails(invoice, outstanding) {
+function printDetails(invoice, outstanding, console) {
   console.log(`name: ${invoice.customer}`);
   console.log(`amount: ${outstanding}`);
-  console.log(`due: ${invoice.dueDate.toLocalDateString()}`);
+  console.log(`due: ${invoice.dueDate.toLocaleDateString()}`);
 }
 
 function calculateOutstanding(invoice) {
@@ -25,7 +25,7 @@ function calculateOutstanding(invoice) {
   return result;
 }
 
-function recordDueDate(invoice) {
+function recordDueDate(invoice, Clock) {
   const today = Clock.today;
   invoice.dueDate = new Date(
     today.getFullYear(),
@@ -34,4 +34,4 @@ function recordDueDate(invoice) {
   );
 }
 
-exports = { printOwing };
+export { printOwing };
