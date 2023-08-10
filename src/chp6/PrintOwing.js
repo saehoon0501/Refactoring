@@ -1,15 +1,7 @@
 function printOwing(invoice) {
   printBanner();
-
   const outstanding = calculateOutstanding(invoice);
-
-  const today = Clock.today;
-  invoice.dueDate = new Date(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDate() + 30
-  );
-
+  recordDueDate(invoice);
   printDetails(invoice, outstanding);
 }
 
@@ -31,6 +23,15 @@ function calculateOutstanding(invoice) {
     result += o.amount;
   }
   return result;
+}
+
+function recordDueDate(invoice) {
+  const today = Clock.today;
+  invoice.dueDate = new Date(
+    today.getFullYear(),
+    today.getMonth(),
+    today.getDate() + 30
+  );
 }
 
 exports = { printOwing };
