@@ -3,7 +3,7 @@ class Book {
     this._reservations = [];
   }
   addReservation(customer) {
-    this._reservations.push(customer);
+    zz_addRservation(customer);
   }
   zz_addRservation(customer) {
     this._reservations.push(customer);
