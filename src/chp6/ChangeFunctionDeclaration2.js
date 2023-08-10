@@ -1,11 +1,14 @@
+const assert = require("assert");
+
 class Book {
   constructor() {
     this._reservations = [];
   }
   addReservation(customer) {
-    zz_addRservation(customer);
+    this.zz_addRservation(customer, false);
   }
-  zz_addRservation(customer) {
+  zz_addRservation(customer, isPrirority) {
+    assert(isPrirority === true || isPrirority === false);
     this._reservations.push(customer);
   }
   hasReservation(customer) {
