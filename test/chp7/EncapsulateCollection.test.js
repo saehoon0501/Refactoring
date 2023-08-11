@@ -7,7 +7,7 @@ describe("Person", () => {
 
     courses.forEach((course) => aPerson.addCourse(course));
 
-    expect(aPerson.name).to.equal("Xuemin");
+    expect(aPerson.name).toEqual("Xuemin");
     expect(aPerson.courses).toEqual(courses);
   });
 
@@ -17,7 +17,7 @@ describe("Person", () => {
     aPerson.addCourse(new Course("Math", false));
     aPerson.addCourse(new Course("Photography", false));
 
-    expect(aPerson.name).to.equal("Xuemin");
+    expect(aPerson.name).toEqual("Xuemin");
     expect(aPerson.courses).toEqual([
       new Course("Math", false),
       new Course("Photography", false),
@@ -36,26 +36,26 @@ describe("Person", () => {
     expect(aPerson.courses).toEqual([new Course("Photography", false)]);
   });
 
-  //   it("internal courses can not be modified by the courses passed to setter", () => {
-  //     const aPerson = new Person("Xuemin");
-  //     const courses = [new Course("Math", true)];
+  it("internal courses can not be modified by the courses passed to setter", () => {
+    const aPerson = new Person("Xuemin");
+    const courses = [new Course("Math", true)];
 
-  //     aPerson.courses = courses;
+    aPerson.courses = courses;
 
-  //     courses.push(new Course("Photography", true));
+    courses.push(new Course("Photography", true));
 
-  //     expect(aPerson.courses).toEqual([new Course("Math", true)]);
-  //   });
+    expect(aPerson.courses).toEqual([new Course("Math", true)]);
+  });
 
-  //   it("internal courses can not be modified by the courses obtained by getter", () => {
-  //     const aPerson = new Person("Xuemin");
+  it("internal courses can not be modified by the courses obtained by getter", () => {
+    const aPerson = new Person("Xuemin");
 
-  //     aPerson.courses = [new Course("Math", true)];
+    aPerson.courses = [new Course("Math", true)];
 
-  //     const coursesByGetter = aPerson.courses;
+    const coursesByGetter = aPerson.courses;
 
-  //     coursesByGetter.push(new Course("Photography", true));
+    coursesByGetter.push(new Course("Photography", true));
 
-  //     expect(aPerson.courses).toEqual([new Course("Math", true)]);
-  //   });
+    expect(aPerson.courses).toEqual([new Course("Math", true)]);
+  });
 });
