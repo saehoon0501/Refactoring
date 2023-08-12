@@ -1,16 +1,15 @@
 export class Customer {
   constructor(name, discountRate) {
     this._name = name;
-    this._setDiscountRate(discountRate);
-    this._contract = new CustomerContract(this.dateToday());
+    this._contract = new CustomerContract(this.dateToday(), discountRate);
   }
 
   get discountRate() {
-    return this._discountRate;
+    return this._contract.discountRate;
   }
 
   _setDiscountRate(aNumber) {
-    this._discountRate = aNumber;
+    this._contract.discountRate = aNumber;
   }
 
   becomePreferred() {
@@ -28,7 +27,16 @@ export class Customer {
 }
 
 class CustomerContract {
-  constructor(startDate) {
+  constructor(startDate, discountRate) {
     this._startDate = startDate;
+    this._discountRate = discountRate;
+  }
+
+  get discountRate() {
+    return this._discountRate;
+  }
+
+  set discountRate(arg) {
+    this._discountRate = arg;
   }
 }
