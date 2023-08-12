@@ -12,7 +12,7 @@ describe("trackSummary", () => {
       lon: 139.839478,
     };
 
-    expect(trackSummary([newYork, tokyo])).to.eql({
+    expect(trackSummary([newYork, tokyo])).toEqual({
       distance: 6740.914927144901,
       pace: 0.02472463581991205,
       time: 10000,
