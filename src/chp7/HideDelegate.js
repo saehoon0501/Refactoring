@@ -12,6 +12,12 @@ class Person {
   set department(arg) {
     this._department = arg;
   }
+  get manager() {
+    return this._department.manager;
+  }
+  get chargeCode() {
+    return this._department.chargeCode;
+  }
 }
 
 class Department {
