@@ -20,6 +20,11 @@ function emitPhotoData(outStream, photo) {
   outStream.write(`<p>location: ${photo.location}</p>\n`);
 }
 
+function zztmp(outStream, photo) {
+  outStream.write(`<p>title: ${photo.title}</p>\n`);
+  outStream.write(`<p>date: ${photo.date.toDateString()}</p>\n`);
+}
+
 function renderPhoto(outStream, aPhoto) {
   outStream.write("");
 }
