@@ -1,13 +1,23 @@
 export function reportYoungestAgeAndTotalSalary(people) {
-  let youngest = people[0] ? people[0].age : Infinity;
-  let totalSalary = 0;
-  for (const p of people) {
-    totalSalary += p.salary;
-  }
+  let totalSalary = ztotalSalary(people);
 
-  for (const p of people) {
-    if (p.age < youngest) youngest = p.age;
-  }
+  let youngest = youngestAge(people);
 
   return `youngestAge: ${youngest}, totalSalary: ${totalSalary}`;
+}
+
+function ztotalSalary(people) {
+  let result = 0;
+  for (const p of people) {
+    result += p.salary;
+  }
+  return result;
+}
+
+function youngestAge(people) {
+  let result = people[0] ? people[0].age : Infinity;
+  for (const p of people) {
+    if (p.age < result) result = p.age;
+  }
+  return result;
 }
