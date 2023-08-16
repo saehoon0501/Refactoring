@@ -1,0 +1,29 @@
+import sinon from "sinon";
+import {
+  findMiscreant,
+  alertForMiscreant,
+} from "../../src/chp11/SeparateQueryFromModifier";
+
+describe("findMiscreant", () => {
+  it("find Don and set off alarm", () => {
+    const alarm = { setOff: function (msg) {} };
+
+    const mock = sinon.mock(alarm);
+    mock.expects("setOff").once().withArgs("Found Miscreant Don");
+
+    expect(findMiscreant(["Tom", "Helen", "Don"], alarm)).toEqual("Don");
+    alertForMiscreant(["Tom", "Helen", "Don"], alarm);
+    mock.verify();
+  });
+
+  it("find John and set off alarm", () => {
+    const alarm = { setOff: function (msg) {} };
+
+    const mock = sinon.mock(alarm);
+    mock.expects("setOff").once().withArgs("Found Miscreant John");
+
+    expect(findMiscreant(["Tom", "Helen", "John"], alarm)).toEqual("John");
+    alertForMiscreant(["Tom", "Helen", "John"], alarm);
+    mock.verify();
+  });
+});
