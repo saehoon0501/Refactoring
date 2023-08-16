@@ -1,4 +1,7 @@
-import { score, Scorer } from "../../src/chp11/ReplaceFunctionWithCommand";
+import {
+  score,
+  ScoringGuide,
+} from "../../src/chp11/ReplaceFunctionWithCommand";
 
 describe("score", () => {
   it("gives a score to a smoker with low original state", () => {
@@ -11,7 +14,11 @@ describe("score", () => {
     };
 
     expect(
-      score(lowCertificationStateCandidate, smokerMedicalExam, new Scorer())
+      score(
+        lowCertificationStateCandidate,
+        smokerMedicalExam,
+        new ScoringGuide()
+      )
     ).toEqual(-10);
   });
 
@@ -25,7 +32,11 @@ describe("score", () => {
     };
 
     expect(
-      score(lowCertificationStateCandidate, smokerMedicalExam, new Scorer())
+      score(
+        lowCertificationStateCandidate,
+        smokerMedicalExam,
+        new ScoringGuide()
+      )
     ).toEqual(-5);
   });
 
@@ -39,7 +50,11 @@ describe("score", () => {
     };
 
     expect(
-      score(lowCertificationStateCandidate, smokerMedicalExam, new Scorer())
+      score(
+        lowCertificationStateCandidate,
+        smokerMedicalExam,
+        new ScoringGuide()
+      )
     ).toEqual(-5);
   });
 
@@ -53,7 +68,11 @@ describe("score", () => {
     };
 
     expect(
-      score(lowCertificationStateCandidate, smokerMedicalExam, new Scorer())
+      score(
+        lowCertificationStateCandidate,
+        smokerMedicalExam,
+        new ScoringGuide()
+      )
     ).toEqual(0);
   });
 });
