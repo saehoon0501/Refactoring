@@ -1,4 +1,3 @@
-import sinon from "sinon";
 import {
   findMiscreant,
   alertForMiscreant,
@@ -8,22 +7,20 @@ describe("findMiscreant", () => {
   it("find Don and set off alarm", () => {
     const alarm = { setOff: function (msg) {} };
 
-    const mock = sinon.mock(alarm);
-    mock.expects("setOff").once().withArgs("Found Miscreant Don");
+    const spy = jest.spyOn(alarm, "setOff");
 
     expect(findMiscreant(["Tom", "Helen", "Don"], alarm)).toEqual("Don");
     alertForMiscreant(["Tom", "Helen", "Don"], alarm);
-    mock.verify();
+    expect(spy).toHaveBeenCalledWith("Found Miscreant Don");
   });
 
   it("find John and set off alarm", () => {
     const alarm = { setOff: function (msg) {} };
 
-    const mock = sinon.mock(alarm);
-    mock.expects("setOff").once().withArgs("Found Miscreant John");
+    const spy = jest.spyOn(alarm, "setOff");
 
     expect(findMiscreant(["Tom", "Helen", "John"], alarm)).toEqual("John");
     alertForMiscreant(["Tom", "Helen", "John"], alarm);
-    mock.verify();
+    expect(spy).toHaveBeenCalledWith("Found Miscreant John");
   });
 });
