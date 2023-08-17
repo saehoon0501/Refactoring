@@ -1,4 +1,4 @@
-import { createEmployee } from "../../src/chp11/ReplaceTypeCodewithSubclasses1";
+import { createEmployee } from "../../src/chp12/ReplaceTypeCodewithSubclasses1";
 
 describe("Employee", () => {
   it("create engineer", () => {
