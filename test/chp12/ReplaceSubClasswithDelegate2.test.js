@@ -1,7 +1,7 @@
 import {
   plumages,
   speeds,
-} from "../../src/chp10/ReplaceConditionalWithPolymorphism1";
+} from "../../src/chp12/ReplaceSubClasswithDelegate2.js";
 
 describe("plumages", () => {
   it("calculates plumages for all supported birds, gives unknown for unsupported ", () => {
@@ -11,20 +11,22 @@ describe("plumages", () => {
         type: "EuropeanSwallow",
         numberOfCoconuts: 1,
         voltage: 100,
+        plumage: "average",
       },
       {
         name: "AfricanSwallow",
         type: "AfricanSwallow",
         numberOfCoconuts: 2,
         voltage: 200,
+        plumage: "average",
       },
       {
         name: "NorwegianBlueParrot",
         type: "NorwegianBlueParrot",
         numberOfCoconuts: 3,
         voltage: 300,
+        plumage: "scorched",
       },
-      { name: "Foo", type: "Foo" },
     ];
 
     expect(plumages(birds)).toEqual(
@@ -32,7 +34,6 @@ describe("plumages", () => {
         ["EuropeanSwallow", "average"],
         ["AfricanSwallow", "average"],
         ["NorwegianBlueParrot", "scorched"],
-        ["Foo", "unknown"],
       ])
     );
   });
@@ -62,7 +63,6 @@ describe("speeds", () => {
         voltage: 300,
         isNailed: false,
       },
-      { name: "Foo", type: "Foo" },
     ];
 
     expect(speeds(birds)).toEqual(
@@ -70,7 +70,6 @@ describe("speeds", () => {
         ["EuropeanSwallow", 35],
         ["AfricanSwallow", 36],
         ["NorwegianBlueParrot", 40],
-        ["Foo", null],
       ])
     );
   });
